@@ -1,0 +1,4 @@
+{"location":"drizzle.config.ts:4","message":"Config loading started","data":{"hasDotenv":true},"timestamp":1767124271717,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"drizzle.config.ts:15","message":"URL parsed successfully","data":{"hostname":"db.osbvttpzlpyhwuohkrxl.supabase.co","port":"5432","username":"postgres","pathname":"/postgres"},"timestamp":1767124271760,"sessionId":"debug-session","runId":"run1","hypothesisId":"B"}
+{"location":"drizzle.config.ts:32","message":"Config exported","data":{"urlProvided":true},"timestamp":1767124271760,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"drizzle.config.ts:8","message":"DATABASE_URL check","data":{"exists":true,"length":88,"masked":"postgresql://postgres:****@db.osbvttpzlpyhwuohkrxl.supabase.co:5432/postgres"},"timestamp":1767124271759,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
