@@ -6,13 +6,11 @@ import type { OurFileRouter } from "@/lib/uploadthing";
 import { trpc } from "@/lib/trpc/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-
-interface MediaUploadButtonProps {
-  postId: number;
-  onUploadComplete?: (urls: string[]) => void;
-  accept?: "image" | "video";
-  className?: string;
-}
+import type {
+  MediaUploadButtonProps,
+  UploadedFile,
+  MediaType,
+} from "@/types/media";
 
 export function MediaUploadButton({
   postId,
@@ -26,9 +24,7 @@ export function MediaUploadButton({
   const endpoint: keyof OurFileRouter =
     accept === "video" ? "videoUploader" : "imageUploader";
 
-  const handleUploadComplete = async (
-    res: Array<{ url: string; type?: string }>
-  ) => {
+  const handleUploadComplete = async (res: UploadedFile[]) => {
     if (!res || res.length === 0) return;
 
     setUploading(true);
@@ -37,7 +33,7 @@ export function MediaUploadButton({
         uploadMedia.mutateAsync({
           postId,
           url: file.url,
-          type: (file.type as "image" | "video") || accept,
+          type: (file.type as MediaType) || accept,
           order: index,
         })
       );
