@@ -1,5 +1,4 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import { UploadThingError } from "uploadthing/server";
 
 const f = createUploadthing();
 
@@ -11,7 +10,7 @@ export const ourFileRouter = {
       // if (!session) throw new UploadThingError("Unauthorized");
       return {};
     })
-    .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       return { url: file.url, type: "image" };
     }),
 
@@ -22,7 +21,7 @@ export const ourFileRouter = {
       // if (!session) throw new UploadThingError("Unauthorized");
       return {};
     })
-    .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       return { url: file.url, type: "video" };
     }),
 } satisfies FileRouter;

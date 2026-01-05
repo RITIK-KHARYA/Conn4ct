@@ -50,7 +50,6 @@ export const useThemeStore = create<ThemeStore>()(
 // This should be used in a component that has access to ThemeProvider
 export function useThemeSync() {
   const { theme, setTheme: setNextTheme } = useNextTheme();
-  const storeTheme = useThemeStore((state) => state.theme);
   const setStoreTheme = useThemeStore((state) => state.setTheme);
   const setMounted = useThemeStore((state) => state.setMounted);
   const setNextThemeRef = useThemeStore((state) => state._setNextThemeRef);

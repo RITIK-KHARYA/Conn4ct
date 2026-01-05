@@ -32,10 +32,11 @@ async function testConnection() {
     console.log("   Server time:", result.rows[0].current_time);
     await pool.end();
     process.exit(0);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("❌ Connection failed:");
-    console.error("   Error:", error.message);
-    if (error.code === "28P01") {
+    const err = error as { message?: string; code?: string };
+    console.error("   Error:", err.message);
+    if (err.code === "28P01") {
       console.error("\n💡 This is an authentication error. Please check:");
       console.error("   1. Username in your DATABASE_URL");
       console.error("   2. Password in your DATABASE_URL (URL-encode special characters)");

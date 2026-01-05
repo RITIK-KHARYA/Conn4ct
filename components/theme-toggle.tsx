@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { useThemeStore, useThemeSync } from "@/lib/stores/theme-store";
 import { Sun, Moon, Monitor } from "lucide-react";
-import { useEffect } from "react";
 
 export function ThemeToggle() {
   // Sync Zustand store with next-themes

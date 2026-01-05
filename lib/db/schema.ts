@@ -8,6 +8,7 @@ import {
   timestamp,
   unique,
   varchar,
+  type PgColumn,
 } from "drizzle-orm/pg-core";
 
 // Better-auth User table (authentication)
@@ -113,7 +114,7 @@ export const postsTable = pgTable(
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
     content: varchar({ length: 280 }).notNull(),
-    parentId: integer("parent_id").references((): any => postsTable.id, {
+    parentId: integer("parent_id").references((): PgColumn => postsTable.id, {
       onDelete: "cascade",
     }),
     createdAt: timestamp().defaultNow().notNull(),

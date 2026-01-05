@@ -5,7 +5,7 @@ import { useThemeStore, useThemeSync } from "@/lib/stores/theme-store";
 import { Sun, Moon, Monitor, Check } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import type { Theme, ThemeOption } from "@/types/theme";
+import type { ThemeOption } from "@/types/theme";
 
 const themes: ThemeOption[] = [
   { value: "light", label: "Light", icon: <Sun className="h-4 w-4" /> },
@@ -19,7 +19,6 @@ export function ThemeSelector() {
 
   const theme = useThemeStore((state) => state.theme);
   const setTheme = useThemeStore((state) => state.setTheme);
-  const mounted = useThemeStore((state) => state.mounted);
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
