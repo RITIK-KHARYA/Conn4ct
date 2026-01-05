@@ -73,7 +73,7 @@ function useCountUp(end: number, duration: number = 2000) {
       const progress = Math.min((currentTime - startTime) / duration, 1);
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
@@ -82,6 +82,34 @@ function useCountUp(end: number, duration: number = 2000) {
   }, [isVisible, end, duration]);
 
   return { count, ref };
+}
+
+function StatItem({ stat, index }: { stat: Stat; index: number }) {
+  const { count, ref } = useCountUp(stat.value, 2000);
+  const Icon = stat.icon;
+
+  return (
+    <div
+      ref={ref}
+      className="group text-center p-10 rounded-[2.5rem] tech-card transition-all duration-500 hover:-translate-y-2 border-white/5 hover:border-primary/20 hover:shadow-[0_20px_50px_-10px_rgba(var(--primary),0.1)]"
+      style={{
+        animationDelay: `${index * 150}ms`,
+      }}
+    >
+      <div
+        className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-br ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-500`}
+      >
+        <Icon className="h-8 w-8 text-white" />
+      </div>
+      <div className="text-5xl sm:text-6xl font-black mb-3 tracking-tighter bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+        {count.toLocaleString()}
+        {stat.suffix}
+      </div>
+      <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest opacity-60">
+        {stat.label}
+      </div>
+    </div>
+  );
 }
 
 export function StatsSection() {
@@ -99,42 +127,17 @@ export function StatsSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light tracking-tight">
-            See what our community of builders and creators has achieved together.
+            See what our community of builders and creators has achieved
+            together.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => {
-            const { count, ref } = useCountUp(stat.value, 2000);
-            const Icon = stat.icon;
-
-            return (
-              <div
-                key={stat.label}
-                ref={ref}
-                className="group text-center p-10 rounded-[2.5rem] tech-card transition-all duration-500 hover:-translate-y-2 border-white/5 hover:border-primary/20 hover:shadow-[0_20px_50px_-10px_rgba(var(--primary),0.1)]"
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                }}
-              >
-                <div
-                  className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-br ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-500`}
-                >
-                  <Icon className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-5xl sm:text-6xl font-black mb-3 tracking-tighter bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  {count.toLocaleString()}
-                  {stat.suffix}
-                </div>
-                <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest opacity-60">
-                  {stat.label}
-                </div>
-              </div>
-            );
-          })}
+          {stats.map((stat, index) => (
+            <StatItem key={stat.label} stat={stat} index={index} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-

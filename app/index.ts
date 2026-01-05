@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import "dotenv/config";
 
 async function main() {
-  const db = drizzle(process.env.DATABASE_URL!);
+  drizzle(process.env.DATABASE_URL!);
 }
 main();
 

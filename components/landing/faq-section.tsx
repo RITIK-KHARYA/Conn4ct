@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 const faqs = [
   {
     question: "How is Conn4ct different from LinkedIn?",

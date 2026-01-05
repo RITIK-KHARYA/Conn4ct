@@ -1,8 +1,7 @@
 "use client";
 
-import { TrendingUp, Hash, Users, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const trendingTopics = [
   { tag: "WebDev", posts: "12.5K" },
@@ -38,7 +37,7 @@ export function FeedSidebar() {
             <div className="h-1 w-1 rounded-full bg-primary" />
           </div>
           <div className="space-y-px rounded-2xl overflow-hidden border border-white/5">
-            {trendingTopics.map((topic, index) => (
+            {trendingTopics.map((topic) => (
               <div
                 key={topic.tag}
                 className="flex items-center justify-between group cursor-pointer bg-white/[0.01] hover:bg-white/[0.03] p-4 transition-all duration-200 border-b border-white/5 last:border-0"
@@ -62,7 +61,7 @@ export function FeedSidebar() {
             <div className="h-1 w-1 rounded-full bg-secondary" />
           </div>
           <div className="space-y-4">
-            {suggestedUsers.map((user, index) => (
+            {suggestedUsers.map((user) => (
               <div
                 key={user.username}
                 className="flex items-center justify-between group bg-white/[0.01] border border-white/5 rounded-2xl p-4 hover:bg-white/[0.02] transition-colors"

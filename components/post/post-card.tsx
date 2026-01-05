@@ -28,7 +28,6 @@ interface PostCardProps {
 }
 
 export function PostCard({
-  id: _id,
   author,
   content,
   media,

@@ -2,7 +2,7 @@ import { Sidebar } from "@/components/layout/sidebar";
 import { FeedSidebar } from "@/components/layout/feed-sidebar";
 import { PostCard } from "@/components/post/post-card";
 import { Button } from "@/components/ui/button";
-import { Settings, MapPin, Link as LinkIcon, Calendar, Users, MessageSquare, Heart } from "lucide-react";
+import { Settings, MapPin, Link as LinkIcon, Calendar } from "lucide-react";
 
 const userProfile = {
   name: "Username",

@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/layout/sidebar";
 import { FeedSidebar } from "@/components/layout/feed-sidebar";
 import { Button } from "@/components/ui/button";
-import { Download, Edit, Link as LinkIcon, MapPin, Calendar, Briefcase, GraduationCap, Code, Award } from "lucide-react";
+import { Download, Edit, Link as LinkIcon, MapPin, Briefcase, GraduationCap, Code, Award } from "lucide-react";
 
 const resumeData = {
   personal: {

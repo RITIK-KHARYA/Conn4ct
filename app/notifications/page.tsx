@@ -148,7 +148,7 @@ export default function NotificationsPage() {
                         {notification.action}
                         {notification.target && (
                           <span className="text-white/40 italic ml-1">
-                            "{notification.target}"
+                            &quot;{notification.target}&quot;
                           </span>
                         )}
                       </p>

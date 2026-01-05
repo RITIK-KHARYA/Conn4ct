@@ -1,66 +1,5 @@
 "use client";
 
-import { 
-  Users, 
-  MessageSquare, 
-  TrendingUp, 
-  Shield, 
-  Zap, 
-  Heart 
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-
-const features = [
-  {
-    icon: Users,
-    title: "Dev Network",
-    description: "Connect with developers, designers, and founders. Build your squad.",
-    color: "text-blue-500",
-    hoverBorder: "group-hover:border-blue-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)]",
-  },
-  {
-    icon: MessageSquare,
-    title: "Tech Discussions",
-    description: "Deep dive into stacks, architectures, and latest tools. No fluff.",
-    color: "text-purple-500",
-    hoverBorder: "group-hover:border-purple-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(168,85,247,0.5)]",
-  },
-  {
-    icon: TrendingUp,
-    title: "Trending Repos",
-    description: "Discover what's hot on GitHub and what the community is building.",
-    color: "text-orange-500",
-    hoverBorder: "group-hover:border-orange-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(249,115,22,0.5)]",
-  },
-  {
-    icon: Shield,
-    title: "Secure by Default",
-    description: "End-to-end encryption for your private messages and data.",
-    color: "text-emerald-500",
-    hoverBorder: "group-hover:border-emerald-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.5)]",
-  },
-  {
-    icon: Zap,
-    title: "Edge Performance",
-    description: "Built on the edge for sub-millisecond latency globally.",
-    color: "text-yellow-500",
-    hoverBorder: "group-hover:border-yellow-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(234,179,8,0.5)]",
-  },
-  {
-    icon: Heart,
-    title: "Open Source",
-    description: "We give back. Support your favorite creators and projects.",
-    color: "text-pink-500",
-    hoverBorder: "group-hover:border-pink-500/50",
-    hoverGlow: "group-hover:shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]",
-  },
-];
-
 export function FeaturesSection() {
   return (
     <section id="features" className="py-32 relative">
@@ -73,7 +12,7 @@ export function FeaturesSection() {
               Describe who you want <br className="hidden lg:block" /> to connect with
             </h2>
             <p className="text-xl text-muted-foreground font-medium max-w-xl">
-              Express your intent. Whether it's finding co-founders, hiring elite talent, 
+              Express your intent. Whether it&apos;s finding co-founders, hiring elite talent, 
               or building a squad for your next project. Our agents process 
               the context from your existing profile and goals.
             </p>
@@ -88,7 +27,7 @@ export function FeaturesSection() {
                 <div className="h-4 w-1/2 bg-white/10 rounded-full" />
              </div>
              <div className="tech-card border-primary/20 bg-primary/5 p-6 rounded-2xl">
-                <p className="text-primary font-bold text-sm">"Find me 3 senior engineers specialized in Rust and Distributed Systems in Berlin..."</p>
+                <p className="text-primary font-bold text-sm">&quot;Find me 3 senior engineers specialized in Rust and Distributed Systems in Berlin...&quot;</p>
              </div>
           </div>
         </div>
@@ -102,14 +41,14 @@ export function FeaturesSection() {
             </h2>
             <p className="text-xl text-muted-foreground font-medium max-w-xl">
               TensorStax generates a structured growth plan tailored to your network, 
-              skills, and the custom rules you've defined for your professional brand.
+              skills, and the custom rules you&apos;ve defined for your professional brand.
             </p>
             <div className="pt-4 flex items-center gap-4">
               <div className="h-px w-12 bg-white/10" />
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Autonomous Planning</span>
             </div>
           </div>
-          <div className="flex-1 w-full aspect-video tech-card rounded-[2.5rem] border-white/5 bg-white/[0.02] p-8 space-y-4">
+          <div className="flex-1 w-full aspect-video tech-card rounded-[2.5rem] border-white/5 bg-white/2 p-8 space-y-4">
              <div className="flex items-center gap-2 text-xs font-black text-primary/60 uppercase tracking-widest">
                 <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 Planning Sequence
@@ -136,7 +75,7 @@ export function FeaturesSection() {
               Automated reachout, relationship nurturing, and opportunity matching.
             </p>
           </div>
-          <div className="tech-card rounded-[3rem] border-white/5 bg-white/[0.01] p-12 max-w-5xl mx-auto">
+          <div className="tech-card rounded-[3rem] border-white/5 bg-white/1 p-12 max-w-5xl mx-auto">
              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-50 contrast-150">
                 {['PIPELINES', 'TRANSFORMS', 'AGENTS', 'SCHEMA'].map(t => (
                   <div key={t} className="text-2xl font-black tracking-tighter">{t}</div>
