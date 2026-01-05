@@ -6,8 +6,10 @@ import { MediaUploadButton } from "@/components/media/upload-button";
 import { Video, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PlateEditor } from "@/components/editor/plate-editor";
+import type { PlateElementNode, PlateValue } from "@/types/editor";
+import Image from "next/image";
 
-const initialValue = [
+const initialValue: PlateValue = [
   {
     type: "p",
     children: [{ text: "" }],
@@ -22,7 +24,12 @@ export function PostComposer() {
 
   const textContent = useMemo(() => {
     return content
-      .map((n) => n.children?.map((c: any) => c.text || "").join("") || "")
+      .map((n) => {
+        const node = n as PlateElementNode;
+        return (
+          node.children?.map((c) => ("text" in c ? c.text : "")).join("") || ""
+        );
+      })
       .join("\n");
   }, [content]);
 
@@ -58,7 +65,9 @@ export function PostComposer() {
             <PlateEditor
               value={content}
               onChange={setContent}
-              placeholder={isFocused ? "What's happening?" : "Command intent..."}
+              placeholder={
+                isFocused ? "What's happening?" : "Command intent..."
+              }
               maxLength={maxLength}
               onFocus={() => setIsFocused(true)}
               onBlur={() => {
@@ -74,7 +83,7 @@ export function PostComposer() {
                     key={index}
                     className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/5 group"
                   >
-                    <img
+                    <Image
                       src={url}
                       alt={`Media ${index + 1}`}
                       className="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
@@ -95,7 +104,9 @@ export function PostComposer() {
                 <MediaUploadButton
                   postId={0}
                   accept="image"
-                  onUploadComplete={(urls) => setMediaUrls([...mediaUrls, ...urls])}
+                  onUploadComplete={(urls) =>
+                    setMediaUrls([...mediaUrls, ...urls])
+                  }
                 />
                 <Button
                   variant="ghost"
@@ -129,7 +140,10 @@ export function PostComposer() {
                             : "bg-primary"
                         )}
                         style={{
-                          width: `${Math.max(0, (textContent.length / maxLength) * 100)}%`,
+                          width: `${Math.max(
+                            0,
+                            (textContent.length / maxLength) * 100
+                          )}%`,
                         }}
                       />
                     </div>
@@ -162,4 +176,3 @@ export function PostComposer() {
     </div>
   );
 }
-

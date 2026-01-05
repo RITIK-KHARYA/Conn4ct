@@ -2,10 +2,11 @@
 
 import { useMemo, useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
+import type { PlateValue, PlateElementNode } from "@/types/editor";
 
 interface PlateEditorProps {
-  value: any[];
-  onChange: (value: any[]) => void;
+  value: PlateValue;
+  onChange: (value: PlateValue) => void;
   placeholder?: string;
   maxLength?: number;
   className?: string;
@@ -24,7 +25,10 @@ export function PlateEditor({
 }: PlateEditorProps) {
   const textContent = useMemo(() => {
     return value
-      .map((n) => n.children?.map((c: any) => c.text || "").join("") || "")
+      .map((n) => {
+        const node = n as PlateElementNode;
+        return node.children?.map((c) => ("text" in c ? c.text : "")).join("") || "";
+      })
       .join("\n");
   }, [value]);
 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Heart,
   MessageCircle,
@@ -27,7 +28,7 @@ interface PostCardProps {
 }
 
 export function PostCard({
-  id,
+  id: _id,
   author,
   content,
   media,
@@ -100,7 +101,7 @@ export function PostCard({
                   key={index}
                   className="aspect-video relative group/media overflow-hidden"
                 >
-                  <img
+                  <Image
                     src={url}
                     alt={`Media ${index + 1}`}
                     className="w-full h-full object-cover grayscale opacity-60 group-hover/media:grayscale-0 group-hover/media:opacity-100 group-hover/media:scale-105 transition-all duration-700"

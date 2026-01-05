@@ -4,9 +4,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
